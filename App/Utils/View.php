@@ -4,7 +4,12 @@ namespace App\Utils;
 
 class View
 {
+    private static $vars = [];
 
+    public static function init($vars = [])
+    {
+        self::$vars = $vars;
+    }
     // Metodo reposnavel por recebr o conteudo da view 
     private static function getContentView($view)
     {
@@ -13,19 +18,22 @@ class View
     }
 
     // metodo responsavel por renderizar a view
-    public static function render($view, $dados = [])
+    public static function render($view, $vars = [])
     {
+
+        $vars = array_merge(self::$vars, $vars);
+
         $contentView = self::getContentView($view);
 
-        $key = array_keys($dados);
+        $key = array_keys($vars);
         $key = array_map(function ($item) {
             return '{{' . $item . '}}';
         }, $key);
 
-        echo "<pre>";
-        print_r($key);
-        echo "</pre>";
+        // echo "<pre>";
+        // print_r($key);
+        // echo "</pre>";
 
-        return str_replace($key, array_values($dados), $contentView);
+        return str_replace($key, array_values($vars), $contentView);
     }
 }

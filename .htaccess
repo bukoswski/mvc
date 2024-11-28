@@ -1,0 +1,9 @@
+# Liga o mecanismo de reescrita
+RewriteEngine on
+
+# Condição: Se o arquivo ou diretório não existir
+RewriteCond %{REQUEST_FILENAME} !-f
+
+
+# Reescreve todas as requisições para index.php
+RewriteRule ^(.*)$ ./index.php [QSA,NC]
