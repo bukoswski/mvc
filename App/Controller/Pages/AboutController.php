@@ -7,7 +7,7 @@ use \App\Models\Entity\Entidade;
 
 class AboutController extends PageController // home é uma pagina
 {
-    public static function getHome()
+    public static function getAbout()
     {
         $Entidade = new Entidade;
 

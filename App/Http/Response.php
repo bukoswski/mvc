@@ -46,16 +46,5 @@ class Response
                 echo $this->content;
                 exit;
         }
-        // Envia o código de status HTTP
-        // http_response_code($this->httpCode);
-
-        // // Envia os cabeçalhos
-        // foreach ($this->headers as $key => $value) {
-        //     header("$key: $value");
-        // }
-
-        // // Envia o conteúdo da resposta
-        // echo $this->content;
-        // exit;
     }
 }
